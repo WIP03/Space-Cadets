@@ -1,2 +1,2 @@
 # Space Cadets
- My solution for the week one Space Cadets challenge.
+ A repo containing the code for my space cadets submissions.
