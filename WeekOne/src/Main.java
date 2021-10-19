@@ -3,9 +3,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
@@ -17,7 +20,7 @@ public class Main {
     //* Error catching for IO error (e.g. when there is no internet)
     //* Report if URL doesn't exist.
     //* Ability for user to input multiple id's.
-    //- Ability for user to be given extra info (like the email and phone number of the id).
+    //* Ability for user to be given extra info (like the email and phone number of the id).
     //- For the information to be put into a json file to be read by the user.
     //- Add anagrams of the id's name to the json file.
     //- Add french translations of the id's name to the json file (use google translate).
@@ -85,9 +88,19 @@ public class Main {
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             String line = null;
 
-            //Sets up the prefix and suffix of the name to be used in finding that said name.
+            //Sets up the prefix and suffix for finding the values of the
+            //name, email and phone number of the inputted emailId.
             String namePrefix = "property=\"name\">";
             String nameSuffix = "<em";
+            String emailPrefix = "property='email'>";
+            String emailSuffix = "</a";
+            String phonePrefix = "property='telephone'>";
+            String phoneSuffix = "</a";
+
+            ArrayList<String> idMetaData = new ArrayList<String>();
+            idMetaData.add("");
+            idMetaData.add("");
+            idMetaData.add("");
 
             //This function reads through all lines of the website,
             //if the page contains the info we are looking for then
@@ -98,19 +111,22 @@ public class Main {
 
             clearConsole(2);
             while ((line = br.readLine()) != null) {
+
                 if (line.contains(namePrefix)) {
-
-                    //This code looks to see if a certain patten is followed on this line
-                    //if so it outputs the information we are looking for.
-                    Pattern pattern = Pattern.compile(("(?<=" + namePrefix + ")(.*?)(?=" + nameSuffix + ")"));
-                    Matcher matcher = pattern.matcher(line);
-
                     //This code is used to return a found name to the user and let the code
                     //know that the user exists preventing the need for showing an error code.
-                    if (matcher.find()) {
-                        System.out.println(matcher.group(0));
-                        nameFound = true;
-                    }
+                    idMetaData.set(0, collectIdUserInfo(namePrefix,nameSuffix,line));
+                    nameFound = true;
+                }
+
+                if (line.contains(emailPrefix)) {
+                    //This code is used to return a found email to the user.
+                    idMetaData.set(1, collectIdUserInfo(emailPrefix,emailSuffix,line));
+                }
+
+                if (line.contains(phonePrefix)) {
+                    //This code is used to return a found phone number to the user.
+                    idMetaData.set(2, collectIdUserInfo(phonePrefix,phoneSuffix,line));
                 }
             }
 
@@ -120,6 +136,13 @@ public class Main {
             if (!nameFound){
                 System.out.println("EmailId doesn't exist on site and is thus invalid.");
             }
+            //This code prints the name of the person with the given id and there personal info.
+            else{
+                System.out.println(idMetaData.get(0)
+                        + "\nEmail: " + idMetaData.get(1)
+                        + "\nPhone number:" + idMetaData.get(2));
+            }
+
             br.close();
         }
 
@@ -151,6 +174,22 @@ public class Main {
         }
         catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    //Function is used to collect information about the person with the given emailId.
+    //This function takes different inputs for different required values.
+    public static String collectIdUserInfo(String pre, String suf, String ln){
+        //This code looks to see if a certain patten is followed on this line
+        //if so it outputs the information we are looking for.
+        Pattern pattern = Pattern.compile(("(?<=" + pre + ")(.*?)(?=" + suf + ")"));
+        Matcher matcher = pattern.matcher(ln);
+
+        //Returns the value you are looking for if it does exist in the page.
+        if (matcher.find()) {
+            return matcher.group(0);
+        }else{
+            return "N/A (No Value)";
         }
     }
 }
