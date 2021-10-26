@@ -1,45 +1,46 @@
-import java.io.*;
-import java.lang.constant.Constable;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Main {
 
   // Main Function
   public static void main(String[] args) {
 
+    //Used to fetch a formatted version of the inputted BareBones code.
+    try{System.out.println(Fetch.fetchCode()[4][2]);}
+    //Returns an exception warning if no code is able to be fetched by the interpreter.
+    catch (Exception e){System.out.println("Unable to fetch code.");}
+
+
+    //OLD CODE USER FOR REFERENCE ONLY
+    /*
     try {
       FileReader program = new FileReader(System.getProperty("user.dir") + "/programs/code.txt");
       BufferedReader readBuffer = new BufferedReader(program);
 
       String code;
 
-      ArrayList<ArrayList<String>> varibles = new ArrayList();
+      ArrayList<ArrayList<String>> variables = new ArrayList();
 
       while ((code = readBuffer.readLine()) != null) {
 
         if (code.contains("clear")){
           boolean isStored = false;
 
-          for(int i = 0; i < varibles.stream().count(); i++){
-            if (varibles.get(i).get(0) == getVaribleType(code, "clear")){
+          for(int i = 0; i < variables.stream().count(); i++){
+            if (variables.get(i).get(0) == getOperand(code, "clear")){
               ArrayList<String> tempList = new ArrayList<>();
-              tempList.add(varibles.get(i).get(0));
+              tempList.add(variables.get(i).get(0));
               tempList.add("0");
 
               isStored = true;
-              varibles.set(i, tempList);
+              variables.set(i, tempList);
             }
           }
 
           if(!isStored){
             ArrayList<String> tempList = new ArrayList<>();
-            tempList.add(getVaribleType(code, "clear"));
+            tempList.add(getOperand(code, "clear"));
             tempList.add("0");
 
-            varibles.add(tempList);
+            variables.add(tempList);
           }
 
         }
@@ -47,7 +48,7 @@ public class Main {
       }
 
       readBuffer.close();
-      System.out.println(varibles);
+      System.out.println(variables);
 
     }
 
@@ -57,16 +58,18 @@ public class Main {
     }
   }
 
-  public static String getVaribleType(String codeToInspect, String command){
-    Pattern pattern = Pattern.compile("(?<=" + command + " )(.*?)(?=;)");
+  public static String getOperand(String codeToInspect, String opcode){
+    Pattern pattern = Pattern.compile("(?<=" + opcode + " )(.*?)(?=;)");
     Matcher matcher = pattern.matcher(codeToInspect);
 
-    //Returns the name of the variable in the function if in correct syntax.
+    //Returns the operand for a given opcode.
     if (matcher.find()) {
       return matcher.group(0);
     }else{
-      return "N/A (No Value)";
+      return "No Present Opcode";
     }
+
+     */
 
   }
 }

@@ -1,0 +1,3 @@
+public class Execute {
+    //TODO ADD FUNCTIONS FOR EACH FUNCTION TYPES (E.G CLEAR, INCR, DECR, WHILE, END, ECT)
+}
