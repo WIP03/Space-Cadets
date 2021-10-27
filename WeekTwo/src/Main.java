@@ -1,77 +1,28 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Main {
 
   // Main Function
   public static void main(String[] args) {
 
-    //Used to fetch a formatted version of the inputted BareBones code.
-    try{System.out.println(Fetch.fetchCode()[4][2]);}
-    //Returns an exception warning if no code is able to be fetched by the interpreter.
-    catch (Exception e){System.out.println("Unable to fetch code.");}
+    // Initialisation of Hashmap containing all variables in the programme.
+    variables = new HashMap<String, Integer>();
 
-
-    //OLD CODE USER FOR REFERENCE ONLY
-    /*
+    // Used to fetch a formatted version of the inputted BareBones code.
     try {
-      FileReader program = new FileReader(System.getProperty("user.dir") + "/programs/code.txt");
-      BufferedReader readBuffer = new BufferedReader(program);
-
-      String code;
-
-      ArrayList<ArrayList<String>> variables = new ArrayList();
-
-      while ((code = readBuffer.readLine()) != null) {
-
-        if (code.contains("clear")){
-          boolean isStored = false;
-
-          for(int i = 0; i < variables.stream().count(); i++){
-            if (variables.get(i).get(0) == getOperand(code, "clear")){
-              ArrayList<String> tempList = new ArrayList<>();
-              tempList.add(variables.get(i).get(0));
-              tempList.add("0");
-
-              isStored = true;
-              variables.set(i, tempList);
-            }
-          }
-
-          if(!isStored){
-            ArrayList<String> tempList = new ArrayList<>();
-            tempList.add(getOperand(code, "clear"));
-            tempList.add("0");
-
-            variables.add(tempList);
-          }
-
-        }
-
-      }
-
-      readBuffer.close();
-      System.out.println(variables);
-
+      Decode.decodeCode(Fetch.fetchCode());
+    }
+    // Returns an exception warning if no code is able to be fetched by the interpreter.
+    catch (Exception e) {
+      System.out.println("Unable to fetch code.");
     }
 
-    // A catch used to let the user know of IO errors.
-    catch (IOException exception) {
-      System.out.println("IO Error: " + exception.getStackTrace()[0]);
-    }
+    // Outputs all variables at the end of running a programme for testing purposes.
+    System.out.println(variables);
   }
-
-  public static String getOperand(String codeToInspect, String opcode){
-    Pattern pattern = Pattern.compile("(?<=" + opcode + " )(.*?)(?=;)");
-    Matcher matcher = pattern.matcher(codeToInspect);
-
-    //Returns the operand for a given opcode.
-    if (matcher.find()) {
-      return matcher.group(0);
-    }else{
-      return "No Present Opcode";
-    }
-
-     */
-
-  }
+  // Creates a public static hashmap for storing variables and their values.
+  public static HashMap<String, Integer> variables;
 }
 
 // ###########SUDO CODE FOR INTERPRETER#####################################
