@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Stack;
 
 public class Main {
 
@@ -8,6 +9,12 @@ public class Main {
 
     // Initialisation of Hashmap containing all variables in the programme.
     variables = new HashMap<String, Integer>();
+
+    // Initialisation of stack containing all while loops that are currently being executed.
+    whileStack = new Stack<Integer>();
+
+    // Initialisation of a boolean for checking if a current loop has ended or not.
+    isCurrentLoopEnded = false;
 
     // Used to fetch a formatted version of the inputted BareBones code.
     try {
@@ -23,22 +30,10 @@ public class Main {
   }
   // Creates a public static hashmap for storing variables and their values.
   public static HashMap<String, Integer> variables;
+
+  // Stack containing all while loops with the most indented one being at the top of the stack.
+  public static Stack<Integer> whileStack;
+
+  // Boolean used to signify if a loop has finished or not
+  public static boolean isCurrentLoopEnded;
 }
-
-// ###########SUDO CODE FOR INTERPRETER#####################################
-
-// if code clear then do this
-//// if value after clear not in variable list add to variable list with value 0
-//// set value in code command to 0
-
-// if code incr then do this
-//// add 1 to value in code command
-
-// if code decr then do this
-//// take away 1 from the value in code command
-
-// #############DO THE WHILE LOOP LAST AS MOST COMPLEX######################
-// if code while then do this if statement is true
-//// when code is end with same indentation then go back to start of while
-// else skip code and continue reading the next lot of lines
-// #########################################################################
