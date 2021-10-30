@@ -19,3 +19,6 @@ while X not 0 do;
    end;
    decr X;
 end;
+incr X;
+incr X;
+incr X;
