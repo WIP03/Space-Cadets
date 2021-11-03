@@ -4,8 +4,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/** Stores the function and fetches the code of the given programme. */
 public class Fetch {
 
+  /**
+   * Fetches all code from the programme file and stores it to a 2D string list. It does this via
+   * string manipulation in the form of replacing unneeded values and splitting up all functions and
+   * variable in each line to a different index in there line of the 2d list.
+   */
   public static String[][] fetchCode() throws IOException {
 
     // Sets up a buffered reader and creates the file path string based on the current user

@@ -35,6 +35,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WeekThree" />
     <property name="settings.editor.selected.configurable" value="google-java-format.settings" />
   </component>
   <component name="RunManager">
@@ -67,7 +68,9 @@
       <workItem from="1635290993517" duration="3210000" />
       <workItem from="1635411347058" duration="7756000" />
       <workItem from="1635501688067" duration="11254000" />
-      <workItem from="1635629624613" duration="4960000" />
+      <workItem from="1635629624613" duration="4997000" />
+      <workItem from="1635637092203" duration="35000" />
+      <workItem from="1635637428153" duration="35000" />
     </task>
     <servers />
   </component>

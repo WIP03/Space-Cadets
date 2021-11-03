@@ -1,11 +1,14 @@
+/** This class contains the function that decodes the given barebones instructions. */
 public class Decode {
   // TODO ADD SWITCH/CASE BASED DECODING
 
+  /**
+   * Loops through all lines of code in the programme decoding what they do and then executing the
+   * command to give the desired effect. While loops are used to allow barebones loops to move
+   * around the code when needed.
+   */
   public static void decodeCode(String[][] programme) {
 
-    // Loops through all lines of code in the programme decoding what they do
-    // and then executing the command to give the desired effect. While loops
-    // are used to allow barebones loops to move around the code when needed.
     int i = 0;
     while (i < programme.length) {
       System.out.println(Main.variables);
@@ -24,6 +27,30 @@ public class Decode {
         case "decr":
           // Calls a function to decrease a variable value.
           Execute.decr(programme[i][1]);
+          i++;
+          break;
+        case "add":
+          // Calls a function to add the second two variables and store there value in the first
+          // one.
+          Execute.add(programme[i][1], programme[i][2], programme[i][3]);
+          i++;
+          break;
+        case "sub":
+          // Calls a function to take away the last variable from the middle one and store there
+          // value in the first one.
+          Execute.sub(programme[i][1], programme[i][2], programme[i][3]);
+          i++;
+          break;
+        case "multi":
+          // Calls a function to multiply the second two variables and store there value in the
+          // first one.
+          Execute.multi(programme[i][1], programme[i][2], programme[i][3]);
+          i++;
+          break;
+        case "div":
+          // Calls a function to divide the middle variable by the value of the final decode
+          // variable. This value is then stored in the first variable.
+          Execute.div(programme[i][1], programme[i][2], programme[i][3]);
           i++;
           break;
         case "while":

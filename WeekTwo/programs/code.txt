@@ -21,4 +21,3 @@ while X not 0 do;
 end;
 incr X;
 incr X;
-incr X;
