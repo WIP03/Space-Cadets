@@ -15,6 +15,20 @@ public class Execute {
   }
 
   /**
+   * Sets the given variable in the functions' operand to is given input (if negative is set to 0).
+   * *
+   */
+  public static void set(String variable, String value) {
+    if (!Main.isCurrentLoopEnded) {
+      if (Integer.parseInt(value) < 0) {
+        Main.variables.put(variable, 0);
+      } else {
+        Main.variables.put(variable, Integer.parseInt(value));
+      }
+    }
+  }
+
+  /**
    * Increase the given variables value by one (if it doesn't exist a variable with the same
    * identifier is set to one as variables don't need to already exist to have a function called on
    * it).
@@ -95,13 +109,37 @@ public class Execute {
   /**
    * This is the start of the while loop. It firstly makes a check to see if the values in the while
    * loop function are not equal. If they are not equal then the position of the loop is added to
-   * the while stack, if they are however then the variable Main.isCurrentLoopEnded to true to make
-   * the program now that the loop is finished.
+   * the loop stack, if they are however then the variable Main.isCurrentLoopEnded to true to make
+   * the program know that the loop is finished.
    */
   public static void whileLoop(String[][] bbProgramme, Integer lineNum) {
+    // Checks to see if condition is met then the loop is ended and all code till the next end
+    // function is ignored (else statement does this in this instance).
     if ((Main.variables.get(bbProgramme[lineNum][1]) != Integer.parseInt(bbProgramme[lineNum][3]))
         & !Main.isCurrentLoopEnded) {
-      Main.whileStack.push(lineNum);
+      Main.loopStack.push(lineNum);
+    } else {
+      Main.isCurrentLoopEnded = true;
+    }
+  }
+
+  /**
+   * This is the start of the for loop. It firstly makes a check to see if the first values in the
+   * for loop function is greater than or equal to the second one. If they are greater than or equal
+   * to then the position of the loop is added to the loop stack, if they are however then the
+   * variable Main.isCurrentLoopEnded to true to make the program know that the loop is finished.
+   */
+  public static void forLoop(String[][] bbProgramme, Integer lineNum) {
+    // Used to create variable in list if it doesn't already exist.
+    incr(bbProgramme[lineNum][1]);
+    decr(bbProgramme[lineNum][1]);
+
+    // Checks to see if condition is met the loop is ended and all code till the next end function
+    // is ignored (else statement does this in this instance).
+    if ((Main.variables.get(bbProgramme[lineNum][1]) < Integer.parseInt(bbProgramme[lineNum][3]))
+        & !Main.isCurrentLoopEnded) {
+      Main.loopStack.push(lineNum);
+      incr(bbProgramme[lineNum][1]);
     } else {
       Main.isCurrentLoopEnded = true;
     }
@@ -116,14 +154,14 @@ public class Execute {
   public static Integer end(Integer lineNum) {
     // Removes current loop from stack and sets the new line number base on the position of that
     // loop in the code.
-    if (!Main.isCurrentLoopEnded & !Main.whileStack.isEmpty()) {
-      lineNum = Main.whileStack.peek() - 1;
-      Main.whileStack.pop();
+    if (!Main.isCurrentLoopEnded & !Main.loopStack.isEmpty()) {
+      lineNum = Main.loopStack.peek() - 1;
+      Main.loopStack.pop();
     }
 
     // Allows for function calls to work when loop stack is not empty or is empty but the loop has
     // ended.
-    if (!Main.whileStack.isEmpty() || (Main.isCurrentLoopEnded & Main.whileStack.isEmpty())) {
+    if (!Main.loopStack.isEmpty() || (Main.isCurrentLoopEnded & Main.loopStack.isEmpty())) {
       Main.isCurrentLoopEnded = false;
     }
 

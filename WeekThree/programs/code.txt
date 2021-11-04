@@ -1,11 +1,8 @@
-clear X;
-incr X;
-incr X;
+set X 120;
 clear Y;
 incr Y;
 incr Y;
 incr Y;
-add Z Y X;
-sub Z Y X;
-mutli Z Y X;
-div Z Y X;
+for i till 50;
+  add Y Y X;
+end;

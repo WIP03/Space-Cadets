@@ -19,6 +19,11 @@ public class Decode {
           Execute.clear(programme[i][1]);
           i++;
           break;
+        case "set":
+          // Calls a function to set a variable value to a given value.
+          Execute.set(programme[i][1], programme[i][2]);
+          i++;
+          break;
         case "incr":
           // Calls a function to increase a variable value.
           Execute.incr(programme[i][1]);
@@ -56,6 +61,12 @@ public class Decode {
         case "while":
           // Calls a function to initiate a loop if a statement is true.
           Execute.whileLoop(programme, i);
+          i++;
+          break;
+        case "for":
+          // Calls a function to initiate a loop if a variables value is less than that of a given
+          // number.
+          Execute.forLoop(programme, i);
           i++;
           break;
         case "end":

@@ -14,8 +14,8 @@ public class Main {
     // Initialisation of Hashmap containing all variables in the programme.
     variables = new HashMap<String, Integer>();
 
-    // Initialisation of stack containing all while loops that are currently being executed.
-    whileStack = new Stack<Integer>();
+    // Initialisation of stack containing all the loops that are currently being executed.
+    loopStack = new Stack<Integer>();
 
     // Initialisation of a boolean for checking if a current loop has ended or not.
     isCurrentLoopEnded = false;
@@ -35,8 +35,8 @@ public class Main {
   // Creates a public static hashmap for storing variables and their values.
   public static HashMap<String, Integer> variables;
 
-  // Stack containing all while loops with the most indented one being at the top of the stack.
-  public static Stack<Integer> whileStack;
+  // Stack containing all the loops with the most indented one being at the top of the stack.
+  public static Stack<Integer> loopStack;
 
   // Boolean used to signify if a loop has finished or not
   public static boolean isCurrentLoopEnded;
