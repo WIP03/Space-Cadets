@@ -85,6 +85,10 @@ public class Decode {
           i = Execute.end(i);
           i++;
           break;
+        case "#":
+          // Comment recognition to prevent code crashes when comments are used.
+          i++;
+          break;
       }
     }
   }
