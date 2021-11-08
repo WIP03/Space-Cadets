@@ -16,7 +16,6 @@ public class Execute {
 
   /**
    * Sets the given variable in the functions' operand to is given input (if negative is set to 0).
-   * *
    */
   public static void set(String variable, String value) {
     if (!Main.isCurrentLoopEnded) {
@@ -26,6 +25,16 @@ public class Execute {
         Main.variables.put(variable, Integer.parseInt(value));
       }
     }
+  }
+
+  /** Prints out a given inputted statement into the console when the command is called. */
+  public static void print(String[] lineCode) {
+    for (String word : lineCode) {
+      if (!word.equals("print")) {
+        System.out.print(word + " ");
+      }
+    }
+    System.out.println();
   }
 
   /**

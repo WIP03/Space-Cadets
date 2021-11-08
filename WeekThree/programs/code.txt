@@ -5,4 +5,6 @@ incr Y;
 incr Y;
 for i till 50;
   add Y Y X;
+  decr X;
 end;
+print hi how are you;

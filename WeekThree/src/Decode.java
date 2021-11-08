@@ -24,6 +24,11 @@ public class Decode {
           Execute.set(programme[i][1], programme[i][2]);
           i++;
           break;
+        case "print":
+          // Calls a function to print a given string.
+          Execute.print(programme[i]);
+          i++;
+          break;
         case "incr":
           // Calls a function to increase a variable value.
           Execute.incr(programme[i][1]);
