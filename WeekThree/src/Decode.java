@@ -87,6 +87,9 @@ public class Decode {
           break;
         case "#":
           // Comment recognition to prevent code crashes when comments are used.
+          if (Main.canPrintComments){
+            Execute.print(programme[i]);
+          }
           i++;
           break;
       }

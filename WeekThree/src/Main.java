@@ -20,6 +20,9 @@ public class Main {
     // Initialisation of a boolean for checking if a current loop has ended or not.
     isCurrentLoopEnded = false;
 
+    // Initialisation of a boolean for checking if comments are printed or not.
+    canPrintComments = true;
+
     // Used to fetch a formatted version of the inputted BareBones code.
     try {
       Decode.decodeCode(Fetch.fetchCode());
@@ -32,12 +35,15 @@ public class Main {
     // Outputs all variables at the end of running a programme for testing purposes.
     System.out.println(variables);
   }
-  // Creates a public static hashmap for storing variables and their values.
+  /** A public static hashmap for storing variables and their values. */
   public static HashMap<String, Integer> variables;
 
-  // Stack containing all the loops with the most indented one being at the top of the stack.
+  /** Stack containing all the loops with the most indented one being at the top of the stack. */
   public static Stack<Integer> loopStack;
 
-  // Boolean used to signify if a loop has finished or not
+  /** Boolean used to signify if a loop has finished or not. */
   public static boolean isCurrentLoopEnded;
+
+  /** Boolean which when true allows all comments in a program to be read */
+  public static boolean canPrintComments;
 }

@@ -1,12 +1,14 @@
+# Sets all inital values.
 set X 120;
 clear Y;
 incr Y;
 incr Y;
 incr Y;
+# For loop to loop i till equal to 50.
 for i till 50;
   add Y Y X;
   decr X;
-  ret X;
 end;
+# Prints final value of y.
 print The value of Y is;
 ret Y;
