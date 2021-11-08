@@ -11,7 +11,7 @@ public class Decode {
 
     int i = 0;
     while (i < programme.length) {
-      System.out.println(Main.variables);
+      //System.out.println(Main.variables);
       // Case and switch used to call functions based on the inputted barebones commands.
       switch (programme[i][0]) {
         case "clear":
@@ -27,6 +27,11 @@ public class Decode {
         case "print":
           // Calls a function to print a given string.
           Execute.print(programme[i]);
+          i++;
+          break;
+        case "ret":
+          // Calls a function to return the value of a given variable.
+          Execute.ret(programme[i][1]);
           i++;
           break;
         case "incr":

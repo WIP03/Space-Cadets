@@ -29,12 +29,24 @@ public class Execute {
 
   /** Prints out a given inputted statement into the console when the command is called. */
   public static void print(String[] lineCode) {
-    for (String word : lineCode) {
-      if (!word.equals("print")) {
-        System.out.print(word + " ");
+    if (!Main.isCurrentLoopEnded) {
+      for (String word : lineCode) {
+        if (!word.equals("print")) {
+          System.out.print(word + " ");
+        }
       }
+      System.out.println();
     }
-    System.out.println();
+  }
+
+  /** Returns the value of a given variable into the console. */
+  public static void ret(String variable) {
+    if (!Main.isCurrentLoopEnded) {
+      if (!Main.variables.containsKey(variable)) {
+        Main.variables.put(variable, 0);
+      }
+      System.out.println(Main.variables.get(variable));
+    }
   }
 
   /**
