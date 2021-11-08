@@ -1,7 +1,5 @@
 /** This class contains the function that decodes the given barebones instructions. */
 public class Decode {
-  // TODO ADD SWITCH/CASE BASED DECODING
-
   /**
    * Loops through all lines of code in the programme decoding what they do and then executing the
    * command to give the desired effect. While loops are used to allow barebones loops to move
@@ -11,7 +9,6 @@ public class Decode {
 
     int i = 0;
     while (i < programme.length) {
-      //System.out.println(Main.variables);
       // Case and switch used to call functions based on the inputted barebones commands.
       switch (programme[i][0]) {
         case "clear":
@@ -87,7 +84,7 @@ public class Decode {
           break;
         case "#":
           // Comment recognition to prevent code crashes when comments are used.
-          if (Main.canPrintComments){
+          if (Main.canPrintComments) {
             Execute.print(programme[i]);
           }
           i++;

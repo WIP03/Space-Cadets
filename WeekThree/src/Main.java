@@ -5,8 +5,8 @@ import java.util.Stack;
 public class Main {
 
   // TODO
-  // - add new functions: if/else, for and print.
-  // - check for and leave out any comments
+  // * add new functions: if/else, for and print.
+  // * check for and leave out any comments
 
   // Main Function
   public static void main(String[] args) {
