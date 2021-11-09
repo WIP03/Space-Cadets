@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="92053255-63ea-49f6-af2e-be800f6ceebb" name="Changes" comment="" />
+    <list default="true" id="5af2c345-5470-4338-9339-d9482fd15d2f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="20FPes81DuELK8VhNFqP3IC0scR" />
+  <component name="ProjectId" id="20g7FoDQMa5OdE10E7PpWQl34g6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -20,37 +27,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-  </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="WeekThree" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="92053255-63ea-49f6-af2e-be800f6ceebb" name="Changes" comment="" />
-      <created>1635637464053</created>
+      <changelist id="5af2c345-5470-4338-9339-d9482fd15d2f" name="Changes" comment="" />
+      <created>1636454279357</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1635637464053</updated>
-      <workItem from="1635637465848" duration="229000" />
-      <workItem from="1635772359359" duration="900000" />
-      <workItem from="1635869020469" duration="6913000" />
-      <workItem from="1636029845716" duration="657000" />
-      <workItem from="1636031047158" duration="5633000" />
-      <workItem from="1636125576390" duration="893000" />
-      <workItem from="1636381193897" duration="6797000" />
-      <workItem from="1636453038819" duration="634000" />
+      <updated>1636454279357</updated>
+      <workItem from="1636454280532" duration="287000" />
     </task>
     <servers />
   </component>
