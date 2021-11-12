@@ -32,7 +32,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="google-java-format.settings" />
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="Client.MainClient" />
       <module name="WeekFour" />
@@ -68,7 +68,7 @@
       <workItem from="1636581228779" duration="3528000" />
       <workItem from="1636626140473" duration="713000" />
       <workItem from="1636639884897" duration="3865000" />
-      <workItem from="1636670198759" duration="3269000" />
+      <workItem from="1636670198759" duration="4308000" />
     </task>
     <servers />
   </component>
