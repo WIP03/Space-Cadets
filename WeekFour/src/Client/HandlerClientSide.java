@@ -34,6 +34,10 @@ public class HandlerClientSide {
     return resp;
   }
 
+  public void stop() throws IOException {
+    this.clientSocket.close();
+  }
+
   public Socket clientSocket;
   private PrintWriter out;
   private BufferedReader in;
