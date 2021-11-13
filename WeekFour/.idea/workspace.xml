@@ -32,8 +32,15 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="google-java-format.settings" />
   </component>
-  <component name="RunManager" selected="Application.Server">
-    <configuration name="Client" type="Application" factoryName="Application" singleton="false">
+  <component name="RunManager" selected="Application.ClientTwo">
+    <configuration name="ClientOne" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="Client.MainClient" />
+      <module name="WeekFour" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientTwo" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="Client.MainClient" />
       <module name="WeekFour" />
       <method v="2">
@@ -48,7 +55,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.ClientOne" />
+      <item itemvalue="Application.ClientTwo" />
       <item itemvalue="Application.Server" />
     </list>
   </component>
@@ -68,7 +76,9 @@
       <workItem from="1636581228779" duration="3528000" />
       <workItem from="1636626140473" duration="713000" />
       <workItem from="1636639884897" duration="3865000" />
-      <workItem from="1636670198759" duration="4308000" />
+      <workItem from="1636670198759" duration="4309000" />
+      <workItem from="1636727607302" duration="1820000" />
+      <workItem from="1636754261203" duration="3838000" />
     </task>
     <servers />
   </component>

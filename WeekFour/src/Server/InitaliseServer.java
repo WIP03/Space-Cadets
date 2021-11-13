@@ -14,21 +14,8 @@ public class InitaliseServer {
   public void init(Integer serverPort) {
     try {
       serverSocket = new ServerSocket(11111);
-      clientSocket = serverSocket.accept();
-      out = new PrintWriter(clientSocket.getOutputStream(), true);
-      in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-
-      String message;
-
-      while ((message = in.readLine()) != null) {
-        System.out.println(message);
-
-        if (!message.equals("!exit")) {
-          out.println("Message received, have a nice day.");
-        } else {
-          out.println("Bye Then :(");
-          break;
-        }
+      while(true){
+        new ClientConnection(serverSocket.accept()).start();
       }
 
     } catch (IOException exception) {
@@ -36,7 +23,4 @@ public class InitaliseServer {
   }
 
   public ServerSocket serverSocket;
-  public Socket clientSocket;
-  public PrintWriter out;
-  public BufferedReader in;
 }
